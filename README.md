@@ -30,26 +30,25 @@
 ## 文件说明
 
 ### 主要文件
-- `generate_report.py` - 报告生成器主程序
-- `trivy_security_report_real.html` - 基于真实数据生成的报告
-- `trivy_security_report.html` - 演示报告模板
-- `scan_result.txt` - Trivy TXT 格式报告
-- `result.json` - Trivy JSON 格式报告
+- `trivy_report_visualization-v1.py` - 报告生成器主程序
+- `trivy_security_report-example.html` - 报告模板
+- Trivy TXT 格式报告（需求）
+- Trivy JSON 格式报告（需求）
 
 ### 使用方法
 
 #### 1. 基本使用
 ```bash
-python generate_report.py
+python trivy_report_visualization-v1.py
 ```
 
 #### 2. 自定义输出路径
 ```bash
-python generate_report.py 自定义报告名称.html
+python trivy_report_visualization-v1.py 自定义报告名称.html
 ```
 
 #### 3. 修改输入文件
-在 `generate_report.py` 中修改文件路径：
+在 `trivy_report_visualization-v1.py` 中修改文件路径：
 ```python
 txt_path = "path/to/your/scan_result.txt"
 json_path = "path/to/your/result.json"
@@ -93,7 +92,7 @@ json_path = "path/to/your/result.json"
 ### 场景 1：日常安全扫描
 1. 使用 Trivy 扫描容器：`trivy fs /path/to/jar > scan_result.txt`
 2. 使用 Trivy 生成 JSON：`trivy fs --format json /path/to/jar > result.json`
-3. 运行报告生成器：`python generate_report.py`
+3. 运行报告生成器：`python trivy_report_visualization-v1.py`
 4. 打开生成的 HTML 报告查看结果
 
 ### 场景 2：安全审计报告
